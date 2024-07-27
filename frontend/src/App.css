@@ -1,0 +1,64 @@
+/* Add this to your existing App.css */
+
+/* Task Update Form Styling */
+.task-update-form {
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  margin: 1rem auto;
+  max-width: 600px;
+  position: relative;
+}
+
+.task-update-form h2 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  color: #007bff;
+}
+
+.task-update-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.task-update-form label {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.task-update-form input,
+.task-update-form textarea {
+  border-radius: 5px;
+  border: 1px solid #ced4da;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.task-update-form input[type="checkbox"] {
+  margin-right: 0.5rem;
+}
+
+.task-update-form button {
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-right: 0.5rem;
+}
+
+.task-update-form button:hover {
+  background: #0056b3;
+}
+
+.task-update-form .cancel-button {
+  background: #6c757d;
+}
+
+.task-update-form .cancel-button:hover {
+  background: #5a6268;
+}

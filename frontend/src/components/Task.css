@@ -1,0 +1,30 @@
+.task-card {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  .task-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .task-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .task-title.completed {
+    text-decoration: line-through;
+    color: #6c757d;
+  }
+  
+  .button-group .btn {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+  }
+  
+  .button-group .btn-danger {
+    margin-left: 0.5rem;
+  }
+  

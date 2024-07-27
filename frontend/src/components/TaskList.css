@@ -1,0 +1,13 @@
+/* src/components/TaskList.css */
+.task-list {
+    padding: 1rem 0;
+  }
+  
+  .task-list .task-card {
+    margin-bottom: 1rem;
+  }
+  
+  .task-list .task-card .btn {
+    margin: 0.5rem 0.25rem;
+  }
+  
