@@ -15,7 +15,7 @@ const TaskList = () => {
 
   const fetchTasks = async () => {
     try {
-      const response = await axios.get('http://localhost:80/');
+      const response = await axios.get('https://to-do-list-gamma-one-27.vercel.app/');
       setTasks(response.data);
     } catch (error) {
       console.error('Error fetching tasks:', error);
@@ -30,7 +30,7 @@ const TaskList = () => {
         status: !status,
         completionTime: !status ? new Date() : null
       };
-      await axios.put(`http://localhost:80/${id}`, updatedTask);
+      await axios.put(`https://to-do-list-gamma-one-27.vercel.app/${id}`, updatedTask);
       fetchTasks(); // Refresh tasks after updating
     } catch (error) {
       console.error('Error updating task:', error);
@@ -39,7 +39,7 @@ const TaskList = () => {
 
   const removeTask = async id => {
     try {
-      await axios.delete(`http://localhost:80/${id}`);
+      await axios.delete(`https://to-do-list-gamma-one-27.vercel.app/${id}`);
       fetchTasks(); // Refresh tasks after deleting
     } catch (error) {
       console.error('Error deleting task:', error);

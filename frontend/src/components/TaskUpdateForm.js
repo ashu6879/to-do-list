@@ -34,7 +34,7 @@ const TaskUpdateForm = ({ taskId, onClose }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`http://localhost:80/${taskId}`, task);
+      await axios.put(`https://to-do-list-gamma-one-27.vercel.app/${taskId}`, task);
       onClose();
     } catch (error) {
       console.error('Error updating task:', error);

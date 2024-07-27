@@ -23,7 +23,7 @@ const TaskForm = ({ addTask }) => {
     e.preventDefault();
     setLoading(true); // Set loading to true when starting to add a task
     try {
-      const response = await axios.post('http://localhost:80/', task);
+      const response = await axios.post('https://to-do-list-gamma-one-27.vercel.app/', task);
       addTask(response.data);
       // Clear the form fields
       setTask({
