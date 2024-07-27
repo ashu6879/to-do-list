@@ -9,18 +9,27 @@ const TaskUpdateForm = ({ taskId, onClose }) => {
     timings: '',
     status: false
   });
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchTask = async () => {
+      setLoading(true);
       try {
-        const response = await axios.get(`http://localhost:80/${taskId}`);
+        const response = await axios.get(`https://to-do-list-gamma-one-27.vercel.app/${taskId}`);
+        console.log('Fetched task:', response.data); // Log response data
         setTask(response.data);
       } catch (error) {
         console.error('Error fetching task:', error);
+        setError('Failed to fetch task data');
+      } finally {
+        setLoading(false);
       }
     };
 
-    fetchTask();
+    if (taskId) {
+      fetchTask();
+    }
   }, [taskId]);
 
   const handleChange = (e) => {
@@ -41,6 +50,14 @@ const TaskUpdateForm = ({ taskId, onClose }) => {
     }
   };
 
+  if (loading) {
+    return <div>Loading...</div>; // You might want to use a spinner or loader here
+  }
+
+  if (error) {
+    return <div>{error}</div>;
+  }
+
   return (
     <Card className="p-3 task-update-card">
       <Card.Body>
@@ -51,7 +68,7 @@ const TaskUpdateForm = ({ taskId, onClose }) => {
             <Form.Control
               type="text"
               name="name"
-              value={task.name}
+              value={task.name || ''}
               onChange={handleChange}
               placeholder="Enter task name"
             />
@@ -62,7 +79,7 @@ const TaskUpdateForm = ({ taskId, onClose }) => {
               as="textarea"
               rows={3}
               name="task"
-              value={task.task}
+              value={task.task || ''}
               onChange={handleChange}
               placeholder="Enter task description"
             />
@@ -72,7 +89,7 @@ const TaskUpdateForm = ({ taskId, onClose }) => {
             <Form.Control
               type="datetime-local"
               name="timings"
-              value={task.timings}
+              value={task.timings || ''}
               onChange={handleChange}
             />
           </Form.Group>
@@ -80,7 +97,7 @@ const TaskUpdateForm = ({ taskId, onClose }) => {
             <Form.Check
               type="checkbox"
               name="status"
-              checked={task.status}
+              checked={task.status || false}
               onChange={handleChange}
               label="Completed"
             />
